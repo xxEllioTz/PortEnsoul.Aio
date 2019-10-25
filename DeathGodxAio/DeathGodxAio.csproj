@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C04E7B7C-406B-4FDE-9C13-2FD69335FE3D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DeathGodxAio</RootNamespace>
+    <AssemblyName>DeathGodxAio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PreBuildEvent />
+    <PostBuildEvent />
+    <OutputPath>bin\Release</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnsoulSharp.SDK">
+      <HintPath>E:\lol-hack\New folder (2)\E3 9.16 2\EnsoulSharp\EnsoulSharp\System\EnsoulSharp.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="EnsoulSharp.Wrapper">
+      <HintPath>E:\lol-hack\New folder (2)\E3 9.16 2\EnsoulSharp\EnsoulSharp\System\EnsoulSharp.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>E:\lol-hack\New folder (2)\E3 9.16 2\EnsoulSharp\EnsoulSharp\System\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>E:\lol-hack\New folder (2)\E3 9.16 2\EnsoulSharp\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
+    <Reference Include="SPrediction">
+      <HintPath>E:\lol-hack\New folder (2)\E3 9.16 2\EnsoulSharp\EnsoulSharp\System\SPrediction.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Champions\Amumu\Program.cs" />
+    <Compile Include="Champions\Cassiopeia\Program.cs" />
+    <Compile Include="Champions\Corki\Program.cs" />
+    <Compile Include="Champions\Diana\Program.cs" />
+    <Compile Include="Champions\Ekko\Program.cs" />
+    <Compile Include="Champions\Ezreal\Program.cs" />
+    <Compile Include="Champions\Graves\Program.cs" />
+    <Compile Include="Champions\Hecarim\Program.cs" />
+    <Compile Include="Champions\JarvanIV\Program.cs" />
+    <Compile Include="Champions\Jax\Program.cs" />
+    <Compile Include="Champions\Kassadin\Program.cs" />
+    <Compile Include="Champions\KogMaw\Program.cs" />
+    <Compile Include="Champions\Leona\Program.cs" />
+    <Compile Include="Champions\Lux\ChewyMoonsLux.cs" />
+    <Compile Include="Champions\Lux\QGapCloser.cs" />
+    <Compile Include="Champions\Lux\SpellCombo.cs" />
+    <Compile Include="Champions\Lux\Utilities.cs" />
+    <Compile Include="Champions\Malphite\Program.cs" />
+    <Compile Include="Champions\MasterYi\Program.cs" />
+    <Compile Include="Champions\MonkeyKing\Program.cs" />
+    <Compile Include="Champions\Nidalee\Program.cs" />
+    <Compile Include="Champions\Olaf\Program.cs" />
+    <Compile Include="Champions\Renekton\Program.cs" />
+    <Compile Include="Champions\Rengar\Program.cs" />
+    <Compile Include="Champions\Rumble\ElRumbleMenu.cs" />
+    <Compile Include="Champions\Rumble\Program.cs" />
+    <Compile Include="Champions\Sejuani\Program.cs" />
+    <Compile Include="Champions\Shaco\ChewyMoonShaco.cs" />
+    <Compile Include="Champions\Shaco\DangerDB.cs" />
+    <Compile Include="Champions\Shaco\Illuminati.cs" />
+    <Compile Include="Champions\Shaco\ShacoUtil.cs" />
+    <Compile Include="Champions\Sona\Program.cs" />
+    <Compile Include="Champions\Talon\Program.cs" />
+    <Compile Include="Champions\Tristana\Program.cs" />
+    <Compile Include="Champions\Trundle\Program.cs" />
+    <Compile Include="Champions\Tryndamere\Tryndamare.cs" />
+    <Compile Include="Champions\Twitch\Program.cs" />
+    <Compile Include="Champions\Vayne\Program.cs" />
+    <Compile Include="Champions\Vladimir\Program.cs" />
+    <Compile Include="Champions\Volibear\Program.cs" />
+    <Compile Include="Champions\XinZhao\Program.cs" />
+    <Compile Include="Champions\Ziggs\Program.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
