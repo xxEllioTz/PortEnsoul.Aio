@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EnsoulSharp;
 using EnsoulSharp.SDK;
+using EnsoulSharp.SDK.Events;
 using EnsoulSharp.SDK.MenuUI;
 using EnsoulSharp.SDK.MenuUI.Values;
 using EnsoulSharp.SDK.Prediction;
@@ -161,7 +162,7 @@ namespace LeeSin
 
 
                 Drawing.OnDraw += Drawing_OnDraw;
-                Game.OnUpdate += Game_OnUpdate;
+                Tick.OnTick += Game_OnUpdate;
                 AIBaseClient.OnProcessSpellCast += OnProcessSpell;
                 Game.OnWndProc += OnWndProc;
 
@@ -176,6 +177,12 @@ namespace LeeSin
         }
         private static void Game_OnUpdate(EventArgs args)
         {
+            switch (Orbwalker.ActiveMode)
+            {
+                case OrbwalkerMode.LaneClear:
+                    LaneClear();
+                    break;
+            }
             if (_config["Combo"]["ActiveCombo"].GetValue<MenuKeyBind>().Active)
             {
                 Combo(GetEnemy);
@@ -200,10 +207,10 @@ namespace LeeSin
             {
                 JungleClear();
             }
-            if (_config["Farm"]["Activelane"].GetValue<MenuKeyBind>().Active)
-            {
-                LaneClear();
-            }
+            //if (_config["Farm"]["Activelane"].GetValue<MenuKeyBind>().Active)
+            //{
+            //    LaneClear();
+            //}
             if (_config["Farm"]["Activelast"].GetValue<MenuKeyBind>().Active)
             {
                 LastHit();
@@ -828,7 +835,17 @@ namespace LeeSin
             var useItemsl = _config["Farm"]["UseItemslane"].GetValue<MenuBool>();
             var useQl = _config["Farm"]["UseQL"].GetValue<MenuBool>();
             var useEl = _config["Farm"]["UseEL"].GetValue<MenuBool>();
+            if(!allMinionsQ.Any())
+            {
+                return;
+            }
+            if(!allMinionsE.Any())
+            {
+                return;
+            }
             if (allMinionsQ.Count == 0)
+                return;
+            if (allMinionsE.Count == 0)
                 return;
             if (EStage == ECastStage.Second && ((Environment.TickCount > casttime + 200 && !Passive()) || Environment.TickCount > ecasttime + 2700))
                 _e.Cast();
@@ -892,7 +909,14 @@ namespace LeeSin
             var minions = ObjectManager.Get<AIBaseClient>().OrderBy(m => m.Health).Where(m => m.IsMinion && m.IsEnemy && !m.IsDead);
             var minionQ = GameObjects.EnemyMinions.Where(e => e.IsValidTarget(_q.Range) && e.IsMinion()).Cast<AIBaseClient>().ToList(); ;
 
-
+            if(!minions.Any())
+            {
+                return;
+            }
+            if(minionQ.Count == 0)
+            {
+                return;
+            }
             foreach (var minion in minions)
             {
                 if (useItemsJ && _tiamat.IsReady && _player.Distance(minion.Position) < _tiamat.Range)
